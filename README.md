@@ -1,70 +1,251 @@
-# Getting Started with Create React App
+# 🎓 FYP Management System – Admin Panel
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern MERN Stack based FYP Management System developed for managing Final Year Project workflows between Admin, Supervisors, and Students.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+# 🚀 Features
 
-### `npm start`
+## 🔐 Authentication System
+- User Registration
+- User Login
+- JWT Authentication
+- Protected Routes
+- Role-Based Access Control
+- Password Hashing using bcryptjs
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# 👥 User Roles
 
-### `npm test`
+## 👨‍💼 Admin
+- Access Admin Dashboard
+- Manage Faculty
+- Manage Supervisors
+- View System Statistics
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 👨‍🏫 Supervisor
+- Access Supervisor Dashboard
+- View Assigned Students
+- Review Project Requests
+- Provide Feedback
 
-### `npm run build`
+## 👨‍🎓 Student
+- Access Student Dashboard
+- View Project Information
+- Check Supervisor Details
+- View Project Status
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# 🛠️ Technologies Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| Technology | Purpose |
+|------------|----------|
+| React.js | Frontend Development |
+| Node.js | Backend Runtime |
+| Express.js | REST API Development |
+| MongoDB | Database |
+| JWT | Authentication |
+| bcryptjs | Password Security |
+| Axios | API Requests |
+| React Router DOM | Routing |
+| Postman | API Testing |
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# 📂 Project Structure
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+admin-panel/
+│
+├── backend/
+│   ├── config/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   └── server.js
+│
+├── src/
+│   ├── components/
+│   ├── context/
+│   ├── pages/
+│   ├── routes/
+│   ├── services/
+│   └── App.js
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# ⚙️ Installation & Setup
 
-## Learn More
+## 1️⃣ Clone Repository
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+git clone https://github.com/asad-afzal9198/admin-panel.git
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 2️⃣ Install Frontend Dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm install
+```
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 3️⃣ Install Backend Dependencies
 
-### Making a Progressive Web App
+```bash
+cd backend
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+# 🗄️ MongoDB Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Make sure MongoDB Community Server is installed and running locally.
 
-### Deployment
+Connection used:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+mongodb://127.0.0.1:27017/fyp-auth
+```
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# ▶️ Run Frontend
+
+```bash
+npm start
+```
+
+Frontend runs on:
+
+```bash
+http://localhost:3000
+```
+
+---
+
+# ▶️ Run Backend
+
+```bash
+cd backend
+npm run dev
+```
+
+Backend runs on:
+
+```bash
+http://localhost:5000
+```
+
+---
+
+# 🔑 API Endpoints
+
+## Register User
+
+```http
+POST /api/auth/register
+```
+
+---
+
+## Login User
+
+```http
+POST /api/auth/login
+```
+
+---
+
+## Protected Profile Route
+
+```http
+GET /api/protected/profile
+```
+
+Requires:
+- JWT Bearer Token
+
+---
+
+# 📸 Screenshots
+
+## 🔐 Login Page
+- Secure authentication page
+
+## 📝 Registration Page
+- User registration with role selection
+
+## 👨‍💼 Admin Dashboard
+- Faculty & supervisor management panel
+
+## 👨‍🎓 Student Dashboard
+- Student information and project section
+
+## 👨‍🏫 Supervisor Dashboard
+- Assigned students and project requests
+
+---
+
+# 🧪 API Testing
+
+All APIs were tested successfully using Postman:
+- Register API
+- Login API
+- Protected Route API
+
+---
+
+# 🔒 Security Features
+
+- JWT Authentication
+- bcrypt Password Hashing
+- Protected Routes
+- Role-Based Authorization
+
+---
+
+# 📦 GitHub Repository
+
+Repository Link:
+
+https://github.com/asad-afzal9198/admin-panel
+
+---
+
+# 👨‍💻 Developers
+
+- Muhammad Asad Afzal – FA24-BSET-028
+- Muhammad Umer Shehzad – FA24-BSET-038
+- Hamza Ali Khan – FA24-BSET-013
+
+---
+
+# 📚 Learning Outcomes
+
+This project improved understanding of:
+- MERN Stack Development
+- Authentication Systems
+- API Integration
+- MongoDB Database Handling
+- JWT Security
+- Role-Based Access Control
+
+---
+
+# ✅ Project Status
+
+✔️ Task 1 Completed  
+✔️ Task 2 Completed  
+✔️ Authentication Module Completed  
+✔️ MongoDB Integrated  
+✔️ GitHub Repository Updated
+
+---
