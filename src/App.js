@@ -1,29 +1,55 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Sidebar from "./components/Sidebar";
-import Navbar from "./components/Navbar";
-import Dashboard from "./pages/Dashboard";
-import Faculty from "./pages/Faculty";
-import Supervisors from "./pages/Supervisors";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
+import { AuthProvider } from "./context/AuthContext";
+import ProtectedRoute from "./routes/ProtectedRoute";
+
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import AdminDashboard from "./pages/AdminDashboard";
+import SupervisorDashboard from "./pages/SupervisorDashboard";
+import StudentDashboard from "./pages/StudentDashboard";
+
+import "./style.css";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="app">
-        <Sidebar />
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Navigate to="/login" />} />
 
-        <main className="main-content">
-          <Navbar />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
 
-          <div className="page-content">
-            <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/faculty" element={<Faculty />} />
-              <Route path="/supervisors" element={<Supervisors />} />
-            </Routes>
-          </div>
-        </main>
-      </div>
-    </BrowserRouter>
+          <Route
+               path="/admin/*"
+                element={
+                     <ProtectedRoute allowedRoles={["admin"]}>
+                 <AdminDashboard />
+                    </ProtectedRoute>
+               }
+          />
+
+          <Route
+            path="/supervisor"
+            element={
+              <ProtectedRoute allowedRoles={["supervisor"]}>
+                <SupervisorDashboard />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/student"
+            element={
+              <ProtectedRoute allowedRoles={["student"]}>
+                <StudentDashboard />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
